@@ -49,7 +49,7 @@ const HomePage = ({
             <Link className={classes.card} href={`/post/${ele.id}`}>
               <h2 className={classes.cardTitle} style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "Montserrat", fontSize: `${20 + fontSizeGeneral}px` }}>{rtl ? ele.title : ele.titleEN}</h2>
               <div className={classes.cardContainer}>
-                <img className={classes.cardIMG} src={ele.img} />
+                <div className={classes.imgcontt}><img className={classes.cardIMG} src={ele.img} /></div>
                 <span className={classes.cardDate} style={{ fontSize: `${12 + fontSizeGeneral}px` }}>{ele.date}</span>
                 <p className={classes.cardContent} style={{ fontFamily: rtl ? "DINNext-Arabic-meduim " : "Montserrat", fontSize: `${16 + fontSizeGeneral}px` }}>{ele.author}</p>
               </div>

@@ -14,13 +14,10 @@ const index = ({ isFeedbackVisible, handleToggleFeedback, conVersion, postId, rt
     const [data2, setData] = useState(postId);
     const fetcher = (url) => fetch(url).then((res) => res.json());
     const { data, error } = useSWR('../api/staticdata', fetcher);
-
     // Handle the error state
     if (error) return <div>Failed to load</div>;
     // Handle the loading state
     if (!data) return <div>Loading...</div>;
-
-
     let filteredPost = [];
     for (let i= 0; i<data.length; i++) {
         if (data[i].id == postId ) {
@@ -28,18 +25,11 @@ const index = ({ isFeedbackVisible, handleToggleFeedback, conVersion, postId, rt
         }
     }
     console.log(filteredPost);
-
-
     return (
-        <div
-            onClick={() => {
-                isFeedbackVisible ? handleToggleFeedback() : null;
-            }}
+        <div 
             style={{
-                filter: isFeedbackVisible ? "brightness(0.5)" : " ",
                 transition: "all 0.6s ease-in-out",
                 height: isFeedbackVisible ? "Calc(100vh - 111px)" : "",
-                overflow: isFeedbackVisible ? "hidden" : "",
             }}
         >
             <Post post={filteredPost} rtl={rtl} />
